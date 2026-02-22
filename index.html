@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generator Modul Ajar 8-3-3-4 Multi-Jenjang</title>
+    <title>Generator Modul Ajar 8-3-3-4 Pro (SMP/SMA/SMK)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <script>
@@ -24,25 +24,26 @@
       }
       .glass-card {
         background: white;
-        border-radius: 16px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         border: 1px solid #e2e8f0;
       }
       .input-label {
         display: block;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         font-weight: 800;
-        color: #64748b;
+        color: #475569;
         text-transform: uppercase;
-        margin-bottom: 4px;
+        margin-bottom: 6px;
+        letter-spacing: 0.05em;
       }
       .custom-input {
         width: 100%;
-        padding: 10px 14px;
-        border: 1.5px solid #e2e8f0;
-        border-radius: 10px;
-        font-size: 0.9rem;
-        transition: all 0.2s;
+        padding: 12px 16px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        transition: all 0.3s;
       }
       .custom-input:focus {
         border-color: #2563eb;
@@ -52,116 +53,126 @@
       .p3-checkbox {
         display: flex;
         align-items: center;
-        gap: 10px;
-        padding: 10px;
-        border: 1.5px solid #e2e8f0;
-        border-radius: 10px;
+        gap: 12px;
+        padding: 12px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
         cursor: pointer;
         transition: all 0.2s;
         font-size: 0.85rem;
+        font-weight: 600;
       }
       .p3-checkbox.active {
         border-color: #2563eb;
         background-color: #eff6ff;
+        color: #1e40af;
       }
       #rppOutput {
         background: white;
         color: black;
         line-height: 1.6;
         font-size: 11pt;
-        font-family: Arial, sans-serif;
+        font-family: "Arial", sans-serif;
       }
       #rppOutput table {
         width: 100% !important;
         border-collapse: collapse !important;
-        margin-bottom: 15px;
-        border: 1px solid black !important;
+        margin-bottom: 20px;
+        border: 1.5px solid black !important;
       }
       #rppOutput th, #rppOutput td {
-        border: 1px solid black !important;
+        border: 1.5px solid black !important;
         padding: 10px;
         vertical-align: top;
       }
-      .section-bg {
-        background-color: #f2f2f2;
-        font-weight: bold;
-      }
-      .page-divider {
-        page-break-before: always;
-        border-top: 2px dashed #ccc;
-        margin: 40px 0;
-        position: relative;
-      }
+      .section-bg { background-color: #f1f5f9; font-weight: bold; }
+      .sig-container { width: 100%; margin-top: 30px; page-break-inside: avoid; }
+      .sig-table { width: 100% !important; border: none !important; }
+      .sig-table td { border: none !important; text-align: center !important; width: 50%; }
+      .page-divider { page-break-before: always; border-top: 2px dashed #cbd5e1; margin: 50px 0; position: relative; }
       .page-divider::after {
-        content: "LAMPIRAN LKPD / MATERI";
+        content: "LAMPIRAN LKPD";
         position: absolute;
-        top: -12px;
+        top: -14px;
         left: 50%;
         transform: translateX(-50%);
-        background: white;
-        padding: 0 15px;
-        font-weight: bold;
+        background: #f8fafc;
+        padding: 0 20px;
+        font-weight: 800;
         color: #94a3b8;
         font-size: 9pt;
       }
       @media print {
         .no-print { display: none !important; }
         body { background: white; padding: 0; }
-        .page-divider { border: none; margin: 0; }
-        .page-divider::after { display: none; }
-        #rppOutput { border: none !important; padding: 0 !important; }
-        @page { margin: 1.5cm; }
+        .max-w-6xl { max-width: 100%; }
+        #rppOutput { padding: 0 !important; border: none !important; }
+        @page { margin: 2cm; }
       }
+      .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
   </head>
   <body class="p-4 md:p-8">
     <div class="max-w-6xl mx-auto">
-      <div class="mb-8 no-print flex items-center justify-between">
+      <!-- Header -->
+      <div class="mb-10 no-print flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 class="text-2xl font-extrabold text-slate-900">
-            Generator Modul Ajar <span class="text-blue-600">8-3-3-4 Pro</span>
+          <h1 class="text-3xl font-black text-slate-900 tracking-tight">
+            Modul Ajar <span class="text-blue-600">8-3-3-4 Pro</span>
           </h1>
-          <p class="text-slate-500 text-sm italic">Mendukung SMP, SMA, & SMK (Vokasi)</p>
+          <p class="text-slate-500 font-medium">Generator Lintas Jenjang: SMP • SMA • SMK</p>
+        </div>
+        <div class="flex items-center gap-3">
+            <div class="text-right hidden md:block">
+                <p class="text-xs font-bold text-slate-400">STATUS SISTEM</p>
+                <p class="text-xs font-bold text-emerald-500 flex items-center justify-end gap-1">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> READY TO GENERATE
+                </p>
+            </div>
         </div>
       </div>
 
-      <div id="inputForm" class="space-y-6 no-print">
-        <div class="glass-card p-6 border-l-4 border-blue-600">
-          <div class="flex justify-between items-center mb-2">
+      <div id="inputForm" class="space-y-6 no-print animate-fade-in">
+        <!-- API Key Section -->
+        <div class="glass-card p-6 border-l-8 border-blue-600">
+          <div class="flex justify-between items-center mb-3">
             <label class="input-label mb-0">Gemini API Key</label>
-            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-xs text-blue-600 underline font-bold">Dapatkan Key Gratis</a>
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-xs text-blue-600 underline font-black">GET API KEY</a>
           </div>
-          <input type="password" id="apiKey" class="custom-input md:w-1/2" placeholder="Masukkan API Key Anda..." />
+          <input type="password" id="apiKey" class="custom-input md:w-full" placeholder="Enter your Google Gemini API Key here..." />
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="glass-card p-6 space-y-4">
-            <h3 class="font-bold border-b pb-2 mb-2 text-blue-800 flex items-center gap-2">
-              <i class="fas fa-university"></i> Identitas & Jenjang
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Column 1: Identity -->
+          <div class="glass-card p-8 space-y-5">
+            <h3 class="font-black text-lg border-b pb-3 mb-4 text-slate-800 flex items-center gap-3">
+              <i class="fas fa-school text-blue-600"></i> Identitas Sekolah
             </h3>
-            <div class="grid grid-cols-2 gap-2">
-              <div>
-                <label class="input-label">Jenjang Pendidikan</label>
-                <select id="jenjang" class="custom-input" onchange="handleJenjangChange()">
-                  <option value="SMP">SMP</option>
-                  <option value="SMA">SMA</option>
-                  <option value="SMK">SMK (Vokasi)</option>
-                </select>
-              </div>
-              <div>
-                <label class="input-label">Fase</label>
-                <select id="fase" class="custom-input">
-                  <option value="D">Fase D (Kls 7-9)</option>
-                  <option value="E">Fase E (Kls 10)</option>
-                  <option value="F">Fase F (Kls 11-12)</option>
-                </select>
-              </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label class="input-label">Jenjang Pendidikan</label>
+                  <select id="jenjang" class="custom-input font-bold text-blue-700" onchange="handleJenjangChange()">
+                    <option value="SMP">SMP (Fase D)</option>
+                    <option value="SMA">SMA (Fase E/F)</option>
+                    <option value="SMK">SMK (Vokasi - Fase E/F)</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="input-label">Kelas</label>
+                  <select id="kelas" class="custom-input"></select>
+                </div>
             </div>
-            <div>
-              <label class="input-label">Nama Instansi / Sekolah</label>
-              <input type="text" id="sekolah" class="custom-input" placeholder="Contoh: SMKN 1 Manonjaya" />
+
+            <div id="smkFields" class="hidden animate-fade-in bg-orange-50 p-4 rounded-xl border-2 border-orange-100">
+                <label class="input-label text-orange-700">Konsentrasi Keahlian (Khusus SMK)</label>
+                <input type="text" id="jurusan" class="custom-input border-orange-200" placeholder="Contoh: Teknik Kendaraan Ringan" />
             </div>
-            <div class="grid grid-cols-2 gap-2">
+
+            <div><label class="input-label">Nama Sekolah</label><input type="text" id="sekolah" class="custom-input" value="SMK Negeri 1 Kota" /></div>
+            
+            <div class="grid grid-cols-2 gap-4">
               <div><label class="input-label">Tahun Pelajaran</label><input type="text" id="tahun" class="custom-input" value="2025/2026" /></div>
               <div>
                 <label class="input-label">Semester</label>
@@ -171,161 +182,249 @@
                 </select>
               </div>
             </div>
-            <div class="grid grid-cols-2 gap-2">
+
+            <div class="grid grid-cols-2 gap-4 pt-2">
               <div><label class="input-label">Nama Guru</label><input type="text" id="guru" class="custom-input" placeholder="Nama Lengkap" /></div>
               <div><label class="input-label">Kepala Sekolah</label><input type="text" id="kepala" class="custom-input" placeholder="Nama Kepala" /></div>
             </div>
           </div>
 
-          <div class="glass-card p-6 space-y-4">
-            <h3 class="font-bold border-b pb-2 mb-2 text-emerald-800 flex items-center gap-2">
-              <i class="fas fa-book-open"></i> Detail Materi
+          <!-- Column 2: Content Details -->
+          <div class="glass-card p-8 space-y-5">
+            <h3 class="font-black text-lg border-b pb-3 mb-4 text-slate-800 flex items-center gap-3">
+              <i class="fas fa-book-open text-emerald-600"></i> Detail Pembelajaran
             </h3>
-            <div class="grid grid-cols-2 gap-2">
-              <div><label class="input-label">Mata Pelajaran</label><input type="text" id="mapel" class="custom-input" placeholder="Contoh: IPA" /></div>
-              <div><label class="input-label">Kelas</label><input type="text" id="kelas" class="custom-input" placeholder="Contoh: X TKI" /></div>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div><label class="input-label">Mata Pelajaran</label><input type="text" id="mapel" class="custom-input" placeholder="Nama Mapel" /></div>
+              <div><label class="input-label">Alokasi Waktu</label><input type="text" id="alokasi" class="custom-input" value="2 JP (2 x 45 Menit)" /></div>
             </div>
+
+            <div><label class="input-label">Materi Pokok / Elemen</label><input type="text" id="materi" class="custom-input" placeholder="Contoh: Pemeliharaan Mesin" /></div>
+            
             <div>
-              <label class="input-label">Materi Pokok / Judul Modul</label>
-              <input type="text" id="materi" class="custom-input" placeholder="Contoh: Destilasi" />
+              <label class="input-label">Model Utama Pembelajaran</label>
+              <select id="model" class="custom-input font-bold text-emerald-700">
+                <option value="Problem Based Learning (PBL)">Problem Based Learning (PBL)</option>
+                <option value="Project Based Learning (PjBL)">Project Based Learning (PjBL)</option>
+                <option value="Discovery Learning">Discovery Learning</option>
+                <option value="Inquiry Learning">Inquiry Learning</option>
+                <option value="Teaching Factory (TeFa)">Teaching Factory (Standar SMK)</option>
+              </select>
             </div>
-            <div class="grid grid-cols-2 gap-2">
-              <div><label class="input-label">Alokasi Waktu</label><input type="text" id="alokasi" class="custom-input" value="2 JP (90 Menit)" /></div>
+
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 flex items-center gap-4">
+              <input type="checkbox" id="genLKPD" checked class="w-6 h-6 accent-blue-600 cursor-pointer" />
               <div>
-                <label class="input-label">Model Pembelajaran</label>
-                <select id="model" class="custom-input">
-                  <option value="Project Based Learning (PjBL)">PjBL (Produk)</option>
-                  <option value="Problem Based Learning (PBL)">PBL (Masalah)</option>
-                  <option value="Discovery Learning">Discovery Learning</option>
-                  <option value="Teaching Factory">Teaching Factory (SMK)</option>
-                </select>
+                <span class="text-sm font-black text-slate-700 block uppercase">Lampirkan LKPD</span>
+                <span class="text-xs text-slate-500">Hasilkan Lembar Kerja Peserta Didik secara otomatis</span>
               </div>
             </div>
-            <div>
-              <label class="input-label">Capaian Pembelajaran (CP) - Opsional</label>
-              <textarea id="cp" class="custom-input h-20 text-xs" placeholder="Tempel CP di sini..."></textarea>
+
+            <div class="space-y-2">
+                <label class="input-label">Profil Pelajar Pancasila</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <label class="p3-checkbox active" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Beriman & Bertakwa" checked class="hidden" /><span>Beriman & Bertakwa</span></label>
+                  <label class="p3-checkbox active" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Bernalar Kritis" checked class="hidden" /><span>Bernalar Kritis</span></label>
+                  <label class="p3-checkbox active" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Gotong Royong" checked class="hidden" /><span>Gotong Royong</span></label>
+                  <label class="p3-checkbox" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Kreatif" class="hidden" /><span>Kreatif</span></label>
+                </div>
             </div>
           </div>
         </div>
 
-        <div class="glass-card p-6">
-          <label class="input-label">Profil Pelajar Pancasila (P5)</label>
-          <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-2">
-            <label class="p3-checkbox active" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Beriman" checked /><span>Beriman</span></label>
-            <label class="p3-checkbox active" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Bernalar Kritis" checked /><span>Kritis</span></label>
-            <label class="p3-checkbox active" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Kreatif" checked /><span>Kreatif</span></label>
-            <label class="p3-checkbox" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Gotong Royong" /><span>Gotong Royong</span></label>
-            <label class="p3-checkbox" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Mandiri" /><span>Mandiri</span></label>
-            <label class="p3-checkbox" onclick="this.classList.toggle('active')"><input type="checkbox" name="p3" value="Kebinekaan Global" /><span>Kebinekaan</span></label>
-          </div>
-        </div>
-
-        <button id="generateBtn" onclick="runGenerator()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 rounded-xl shadow-lg transition-all flex justify-center items-center gap-3">
-          <i class="fas fa-rocket"></i> GENERATE MODUL AJAR SEKARANG
+        <button id="generateBtn" onclick="runGenerator()" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-black py-5 rounded-2xl shadow-xl transition-all transform hover:scale-[1.01] active:scale-95 flex justify-center items-center gap-4 text-lg">
+          <i class="fas fa-bolt text-yellow-300"></i> GENERATE MODUL AJAR SEKARANG
         </button>
       </div>
 
-      <div id="resultArea" class="hidden mt-6">
-        <div class="no-print flex justify-between items-center mb-6 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-          <button onclick="backToEdit()" class="text-slate-600 font-bold flex items-center gap-2">
-            <i class="fas fa-arrow-left"></i> Edit Data
+      <!-- Result Area -->
+      <div id="resultArea" class="hidden mt-8">
+        <div class="no-print flex justify-between items-center mb-6 bg-white p-4 rounded-xl shadow-md border border-slate-100">
+          <button onclick="backToEdit()" class="px-5 py-2.5 rounded-xl font-black text-slate-600 hover:bg-slate-50 transition flex items-center gap-2">
+            <i class="fas fa-arrow-left"></i> KEMBALI
           </button>
           <div class="flex gap-3">
-             <button onclick="copyContent()" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg font-bold">
-              <i class="fas fa-copy mr-2"></i> Salin
-            </button>
-            <button onclick="window.print()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold">
-              <i class="fas fa-print mr-2"></i> Cetak
+            <button onclick="window.print()" class="bg-blue-600 text-white px-8 py-2.5 rounded-xl font-black shadow-lg hover:bg-blue-700 transition flex items-center gap-2">
+                <i class="fas fa-print"></i> PRINT KE PDF / KERTAS
             </button>
           </div>
         </div>
-        <div id="rppOutput" class="p-10 md:p-16 border bg-white shadow-2xl min-h-screen"></div>
+        <div id="rppOutput" class="p-10 md:p-16 border bg-white shadow-2xl rounded-sm min-h-screen"></div>
       </div>
 
+      <!-- Loader Overlay -->
       <div id="loader" class="hidden fixed inset-0 bg-white/95 z-50 flex flex-col items-center justify-center text-center">
         <div class="relative">
-            <div class="w-20 h-20 border-4 border-blue-100 rounded-full"></div>
-            <div class="w-20 h-20 border-4 border-blue-600 border-t-transparent rounded-full animate-spin absolute top-0"></div>
+            <div class="w-24 h-24 border-8 border-blue-100 rounded-full"></div>
+            <div class="w-24 h-24 border-8 border-blue-600 border-t-transparent rounded-full animate-spin absolute top-0 left-0"></div>
         </div>
-        <p class="mt-6 font-bold text-slate-800 text-xl">Sedang merancang Modul Ajar...</p>
+        <h2 class="mt-8 font-black text-2xl text-slate-900 px-4">AI Sedang Merancang Modul Ajar...</h2>
+        <p class="mt-2 text-slate-500 font-medium">Menyesuaikan dengan Fase Kurikulum & Standar 8-3-3-4</p>
+        <div class="mt-6 flex gap-2">
+            <span class="w-2 h-2 bg-blue-600 rounded-full animate-bounce"></span>
+            <span class="w-2 h-2 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+            <span class="w-2 h-2 bg-blue-600 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+        </div>
       </div>
     </div>
 
     <script>
+      // 1. Dynamic UI Logic
       function handleJenjangChange() {
         const jenjang = document.getElementById("jenjang").value;
-        const faseSelect = document.getElementById("fase");
-        if (jenjang === "SMP") { faseSelect.value = "D"; } 
-        else if (jenjang === "SMA" || jenjang === "SMK") { faseSelect.value = "E"; }
+        const kelasSelect = document.getElementById("kelas");
+        const smkFields = document.getElementById("smkFields");
+        
+        let options = "";
+        if (jenjang === "SMP") {
+          options = '<option value="VII">Kelas VII</option><option value="VIII">Kelas VIII</option><option value="IX">Kelas IX</option>';
+          smkFields.classList.add("hidden");
+        } else {
+          options = '<option value="X">Kelas X</option><option value="XI">Kelas XI</option><option value="XII">Kelas XII</option>';
+          if (jenjang === "SMK") smkFields.classList.remove("hidden");
+          else smkFields.classList.add("hidden");
+        }
+        kelasSelect.innerHTML = options;
       }
 
+      window.onload = handleJenjangChange;
+
+      // 2. Fetch Helper with Exponential Backoff
+      async function fetchWithRetry(url, options, maxRetries = 5) {
+        for (let i = 0; i < maxRetries; i++) {
+          try {
+            const response = await fetch(url, options);
+            if (response.ok) return await response.json();
+          } catch (e) {}
+          await new Promise((res) => setTimeout(res, Math.pow(2, i) * 1000));
+        }
+        throw new Error("Gagal terhubung ke API Gemini. Cek koneksi atau Key Anda.");
+      }
+
+      function cleanAiText(html) {
+        const patterns = [
+          /Mengetahui,[\s\S]*?NIP\.\s?\d+/gi,
+          /Guru Mata Pelajaran[\s\S]*?NIP\.\s?\d+/gi,
+          /Kepala Sekolah[\s\S]*?NIP\.\s?\d+/gi,
+          /Tanda Tangan[\s\S]*?_________/gi,
+        ];
+        let cleaned = html.replace(/```html/gi, "").replace(/```/gi, "").trim();
+        patterns.forEach((p) => (cleaned = cleaned.replace(p, "")));
+        return cleaned;
+      }
+
+      // 3. Main Generator Logic
       async function runGenerator() {
         const key = document.getElementById("apiKey").value.trim();
-        if (!key) { alert("Input API Key!"); return; }
+        if (!key) {
+          alert("Silakan masukkan API Key Gemini Anda!");
+          return;
+        }
 
-        const p = {
+        const dataInput = {
+          sekolah: document.getElementById("sekolah").value,
           jenjang: document.getElementById("jenjang").value,
-          fase: document.getElementById("fase").value,
-          sekolah: document.getElementById("sekolah").value || "Sekolah Contoh",
+          kelas: document.getElementById("kelas").value,
+          jurusan: document.getElementById("jurusan").value,
           tahun: document.getElementById("tahun").value,
           semester: document.getElementById("semester").value,
-          guru: document.getElementById("guru").value || "Nama Guru",
-          kepala: document.getElementById("kepala").value || "Nama Kepala",
+          guru: document.getElementById("guru").value || "....................",
+          kepala: document.getElementById("kepala").value || "....................",
           mapel: document.getElementById("mapel").value,
           materi: document.getElementById("materi").value,
-          kelas: document.getElementById("kelas").value,
           alokasi: document.getElementById("alokasi").value,
           model: document.getElementById("model").value,
-          cp: document.getElementById("cp").value,
-          p3: Array.from(document.querySelectorAll('input[name="p3"]:checked')).map(cb => cb.value).join(", ")
+          p3: Array.from(document.querySelectorAll('input[name="p3"]:checked')).map(cb => cb.value).join(", "),
+          lkpd: document.getElementById("genLKPD").checked,
         };
+
+        // Determine Phase
+        let fase = "D";
+        if (dataInput.jenjang !== "SMP") {
+          fase = (dataInput.kelas === "X") ? "E" : "F";
+        }
 
         const loader = document.getElementById("loader");
         loader.classList.remove("hidden");
 
-        const systemPrompt = `Anda adalah pakar Kurikulum Merdeka ${p.jenjang}. 
-        Gunakan metode Deep Learning 8-3-3-4.
-        PENTING: Gunakan model HTML (tabel dan list) untuk hasil.
-        Sertakan label: [3M], [3P], [4PP] dalam langkah pembelajaran.
-        Jika ini SMK, fokus ke keterampilan praktis/vokasi.
-        Jika ini SMA, fokus ke kedalaman teori dan HOTS.`;
+        const systemPrompt = `Anda adalah pakar Kurikulum Merdeka ${dataInput.jenjang} (Fase ${fase}) dan Kerangka Deep Learning 8-3-3-4 (Berkesadaran, Bermakna, Menggembirakan).
+        
+        TUGAS ANDA: Membuat Modul Ajar (MA) yang sangat profesional.
+        ${dataInput.jenjang === 'SMK' ? `KONTEKS SMK: Fokus pada Budaya Kerja (P5 Kebekerjaan) dan Link-and-Match Industri. Jika materi adalah praktik, gunakan langkah teknis yang sesuai SOP industri. Jurusan: ${dataInput.jurusan}.` : ''}
+        ${dataInput.jenjang === 'SMA' ? `KONTEKS SMA: Fokus pada Higher Order Thinking Skills (HOTS), persiapan akademik lanjut, dan literasi mendalam.` : ''}
 
-        const promptText = `Buat Modul Ajar: Materi ${p.materi}, Mapel ${p.mapel}, Jenjang ${p.jenjang}, Fase ${p.fase}, Kelas ${p.kelas}, Alokasi ${p.alokasi}, CP: ${p.cp}.`;
+        KRITERIA KERANGKA 8-3-3-4:
+        - 8 Standar Mutu
+        - 3M (Berkesadaran, Bermakna, Menggembirakan)
+        - 3P (Penerimaan, Perhatian, Persiapan)
+        - 4PP (Penyampaian, Pendalaman, Penerapan, Penguatan)
+        
+        INSTRUKSI OUTPUT:
+        1. Wajib tampilkan label [3M], [3P], dan [4PP] pada langkah-langkah kegiatan inti secara eksplisit.
+        2. Gunakan model pembelajaran: ${dataInput.model}.
+        3. Jika LKPD diaktifkan (${dataInput.lkpd}), buatlah lampiran LKPD yang menantang dan aplikatif di bagian akhir.
+        4. JANGAN tuliskan blok tanda tangan. Letakkan marker [MODUL_SIG] sebelum bagian lampiran.
+        5. Format output harus HTML standar (tabel, list, bold).`;
+
+        const userPrompt = `Buatkan Modul Ajar lengkap untuk Mata Pelajaran: ${dataInput.mapel}, Materi/Elemen: ${dataInput.materi}, untuk Kelas ${dataInput.kelas} (Fase ${fase}). Sertakan LKPD: ${dataInput.lkpd}.`;
 
         try {
-          // PERBAIKAN: Menggunakan model gemini-1.5-flash yang pasti ada
-          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
-          
-          const response = await fetch(apiUrl, {
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${key}`;
+          const response = await fetchWithRetry(apiUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              contents: [{ parts: [{ text: promptText }] }],
+              contents: [{ parts: [{ text: userPrompt }] }],
               systemInstruction: { parts: [{ text: systemPrompt }] },
             }),
           });
 
-          const data = await response.json();
-          if (data.error) throw new Error(data.error.message);
+          let aiHtml = response.candidates?.[0]?.content?.parts?.[0]?.text || "";
+          aiHtml = cleanAiText(aiHtml);
 
-          let aiHtml = data.candidates[0].content.parts[0].text
-            .replace(/```html/gi, "").replace(/```/gi, "").trim();
-          
-          const header = `<div style="text-align:center; border-bottom:3px double black; margin-bottom:20px;">
-              <h1 style="font-size:16pt; font-weight:bold;">MODUL AJAR KURIKULUM MERDEKA</h1>
-              <h2 style="font-size:14pt;">${p.jenjang} - KERANGKA 8-3-3-4</h2>
+          const today = new Date();
+          const dateStr = `${today.getDate()} ${["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"][today.getMonth()]} ${today.getFullYear()}`;
+
+          const sigArea = `
+            <div class="sig-container">
+              <table class="sig-table">
+                <tr>
+                  <td><p>Mengetahui,</p><p>Kepala ${dataInput.sekolah}</p><br><br><br><p><strong><u>${dataInput.kepala}</u></strong></p><p>NIP. .............................</p></td>
+                  <td><p>Kota, ${dateStr}</p><p>Guru Mata Pelajaran,</p><br><br><br><p><strong><u>${dataInput.guru}</u></strong></p><p>NIP. .............................</p></td>
+                </tr>
+              </table>
+            </div>`;
+
+          const header = `
+            <div style="text-align:center; margin-bottom:20px; border-bottom: 4px double black; padding-bottom: 15px;">
+              <h1 style="font-size:16pt; margin:0; font-weight: bold;">MODUL AJAR KURIKULUM MERDEKA (8-3-3-4)</h1>
+              <h2 style="font-size:14pt; margin:5px 0;">FASE ${fase} - ${dataInput.jenjang}</h2>
+              <h3 style="font-size:12pt; margin:0;">TAHUN PELAJARAN ${dataInput.tahun}</h3>
             </div>
             <table>
-                <tr><td class="section-bg" width="25%">Nama Guru</td><td width="25%">${p.guru}</td><td class="section-bg" width="25%">Sekolah</td><td width="25%">${p.sekolah}</td></tr>
-                <tr><td class="section-bg">Mata Pelajaran</td><td>${p.mapel}</td><td class="section-bg">Jenjang/Fase</td><td>${p.jenjang}/${p.fase}</td></tr>
-                <tr><td class="section-bg">Materi</td><td colspan="3"><strong>${p.materi}</strong></td></tr>
+              <tr><td width="20%" class="section-bg">Penyusun</td><td width="30%"><strong>${dataInput.guru}</strong></td><td width="20%" class="section-bg">Sekolah</td><td width="30%">${dataInput.sekolah}</td></tr>
+              <tr><td class="section-bg">Mata Pelajaran</td><td>${dataInput.mapel}</td><td class="section-bg">Kelas / Fase</td><td>${dataInput.kelas} / ${fase}</td></tr>
+              ${dataInput.jenjang === 'SMK' ? `<tr><td class="section-bg">Konsentrasi</td><td colspan="3">${dataInput.jurusan}</td></tr>` : ''}
+              <tr><td class="section-bg">Materi Pokok</td><td colspan="3"><strong>${dataInput.materi}</strong></td></tr>
+              <tr><td class="section-bg">Alokasi Waktu</td><td>${dataInput.alokasi}</td><td class="section-bg">Model</td><td>${dataInput.model}</td></tr>
+              <tr><td class="section-bg">Profil Pancasila</td><td colspan="3">${dataInput.p3}</td></tr>
             </table>`;
 
-          document.getElementById("rppOutput").innerHTML = header + aiHtml;
+          const pageDivider = `<div class="page-divider"></div>`;
+          let finalContent = aiHtml.includes("[MODUL_SIG]") 
+            ? aiHtml.replace("[MODUL_SIG]", sigArea + (dataInput.lkpd ? pageDivider : "")) 
+            : aiHtml + sigArea;
+
+          document.getElementById("rppOutput").innerHTML = header + finalContent;
+          
+          if (window.MathJax) await window.MathJax.typesetPromise([document.getElementById("rppOutput")]);
+
           document.getElementById("inputForm").classList.add("hidden");
           document.getElementById("resultArea").classList.remove("hidden");
+          window.scrollTo(0, 0);
         } catch (err) {
-          alert("Error: " + err.message);
+          alert("Terjadi Kesalahan: " + err.message);
         } finally {
           loader.classList.add("hidden");
         }
@@ -334,15 +433,6 @@
       function backToEdit() {
         document.getElementById("resultArea").classList.add("hidden");
         document.getElementById("inputForm").classList.remove("hidden");
-      }
-
-      function copyContent() {
-        const range = document.createRange();
-        range.selectNode(document.getElementById("rppOutput"));
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
-        document.execCommand("copy");
-        alert("Berhasil disalin!");
       }
     </script>
   </body>
