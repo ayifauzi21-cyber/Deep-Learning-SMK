@@ -116,7 +116,6 @@
   </head>
   <body class="p-4 md:p-8">
     <div class="max-w-6xl mx-auto">
-      <!-- Header -->
       <div class="mb-8 no-print flex items-center justify-between">
         <div>
           <h1 class="text-2xl font-extrabold text-slate-900">
@@ -124,13 +123,9 @@
           </h1>
           <p class="text-slate-500 text-sm italic">Mendukung SMP, SMA, & SMK (Vokasi)</p>
         </div>
-        <div class="flex gap-2">
-          <span class="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full border border-indigo-200 uppercase tracking-wider">Universal Edition</span>
-        </div>
       </div>
 
       <div id="inputForm" class="space-y-6 no-print">
-        <!-- API Key Section -->
         <div class="glass-card p-6 border-l-4 border-blue-600">
           <div class="flex justify-between items-center mb-2">
             <label class="input-label mb-0">Gemini API Key</label>
@@ -140,7 +135,6 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Identitas Guru & Jenjang -->
           <div class="glass-card p-6 space-y-4">
             <h3 class="font-bold border-b pb-2 mb-2 text-blue-800 flex items-center gap-2">
               <i class="fas fa-university"></i> Identitas & Jenjang
@@ -183,18 +177,17 @@
             </div>
           </div>
 
-          <!-- Detail Pembelajaran -->
           <div class="glass-card p-6 space-y-4">
             <h3 class="font-bold border-b pb-2 mb-2 text-emerald-800 flex items-center gap-2">
               <i class="fas fa-book-open"></i> Detail Materi
             </h3>
             <div class="grid grid-cols-2 gap-2">
-              <div><label class="input-label">Mata Pelajaran</label><input type="text" id="mapel" class="custom-input" placeholder="Contoh: Kimia Industri" /></div>
+              <div><label class="input-label">Mata Pelajaran</label><input type="text" id="mapel" class="custom-input" placeholder="Contoh: IPA" /></div>
               <div><label class="input-label">Kelas</label><input type="text" id="kelas" class="custom-input" placeholder="Contoh: X TKI" /></div>
             </div>
             <div>
               <label class="input-label">Materi Pokok / Judul Modul</label>
-              <input type="text" id="materi" class="custom-input" placeholder="Contoh: Proses Destilasi Sederhana" />
+              <input type="text" id="materi" class="custom-input" placeholder="Contoh: Destilasi" />
             </div>
             <div class="grid grid-cols-2 gap-2">
               <div><label class="input-label">Alokasi Waktu</label><input type="text" id="alokasi" class="custom-input" value="2 JP (90 Menit)" /></div>
@@ -210,12 +203,11 @@
             </div>
             <div>
               <label class="input-label">Capaian Pembelajaran (CP) - Opsional</label>
-              <textarea id="cp" class="custom-input h-20 text-xs" placeholder="Tempel CP di sini agar modul lebih akurat..."></textarea>
+              <textarea id="cp" class="custom-input h-20 text-xs" placeholder="Tempel CP di sini..."></textarea>
             </div>
           </div>
         </div>
 
-        <!-- P5 Section -->
         <div class="glass-card p-6">
           <label class="input-label">Profil Pelajar Pancasila (P5)</label>
           <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mt-2">
@@ -233,32 +225,29 @@
         </button>
       </div>
 
-      <!-- Result Area -->
       <div id="resultArea" class="hidden mt-6">
         <div class="no-print flex justify-between items-center mb-6 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-          <button onclick="backToEdit()" class="text-slate-600 font-bold flex items-center gap-2 hover:text-blue-600 transition">
+          <button onclick="backToEdit()" class="text-slate-600 font-bold flex items-center gap-2">
             <i class="fas fa-arrow-left"></i> Edit Data
           </button>
           <div class="flex gap-3">
-             <button onclick="copyContent()" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg font-bold hover:bg-slate-200 transition">
+             <button onclick="copyContent()" class="bg-slate-100 text-slate-700 px-4 py-2 rounded-lg font-bold">
               <i class="fas fa-copy mr-2"></i> Salin
             </button>
-            <button onclick="window.print()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold shadow-md hover:bg-blue-700 transition">
-              <i class="fas fa-print mr-2"></i> Cetak Modul
+            <button onclick="window.print()" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-bold">
+              <i class="fas fa-print mr-2"></i> Cetak
             </button>
           </div>
         </div>
         <div id="rppOutput" class="p-10 md:p-16 border bg-white shadow-2xl min-h-screen"></div>
       </div>
 
-      <!-- Loader Overlay -->
       <div id="loader" class="hidden fixed inset-0 bg-white/95 z-50 flex flex-col items-center justify-center text-center">
         <div class="relative">
             <div class="w-20 h-20 border-4 border-blue-100 rounded-full"></div>
             <div class="w-20 h-20 border-4 border-blue-600 border-t-transparent rounded-full animate-spin absolute top-0"></div>
         </div>
-        <p id="loaderText" class="mt-6 font-bold text-slate-800 text-xl">Sedang merancang Modul Ajar...</p>
-        <p class="text-slate-400 text-sm mt-2">Ini mungkin memakan waktu 15-30 detik</p>
+        <p class="mt-6 font-bold text-slate-800 text-xl">Sedang merancang Modul Ajar...</p>
       </div>
     </div>
 
@@ -266,42 +255,13 @@
       function handleJenjangChange() {
         const jenjang = document.getElementById("jenjang").value;
         const faseSelect = document.getElementById("fase");
-        if (jenjang === "SMP") {
-          faseSelect.value = "D";
-        } else if (jenjang === "SMA" || jenjang === "SMK") {
-          faseSelect.value = "E";
-        }
-      }
-
-      async function fetchWithRetry(url, options, maxRetries = 5) {
-        let delay = 1000;
-        for (let i = 0; i < maxRetries; i++) {
-          try {
-            const response = await fetch(url, options);
-            const data = await response.json();
-            if (response.ok) return data;
-            
-            if (data.error) throw new Error(data.error.message);
-            throw new Error(`HTTP Error ${response.status}`);
-          } catch (e) {
-            if (i === maxRetries - 1) throw e;
-            await new Promise((res) => setTimeout(res, delay));
-            delay *= 2; // Exponential backoff
-          }
-        }
-      }
-
-      function cleanAiText(html) {
-        return html
-          .replace(/```html/gi, "")
-          .replace(/```/gi, "")
-          .replace(/\[MODUL_SIG\]/g, "")
-          .trim();
+        if (jenjang === "SMP") { faseSelect.value = "D"; } 
+        else if (jenjang === "SMA" || jenjang === "SMK") { faseSelect.value = "E"; }
       }
 
       async function runGenerator() {
         const key = document.getElementById("apiKey").value.trim();
-        if (!key) { alert("Silakan masukkan API Key Gemini!"); return; }
+        if (!key) { alert("Input API Key!"); return; }
 
         const p = {
           jenjang: document.getElementById("jenjang").value,
@@ -310,7 +270,7 @@
           tahun: document.getElementById("tahun").value,
           semester: document.getElementById("semester").value,
           guru: document.getElementById("guru").value || "Nama Guru",
-          kepala: document.getElementById("kepala").value || "Nama Kepala Sekolah",
+          kepala: document.getElementById("kepala").value || "Nama Kepala",
           mapel: document.getElementById("mapel").value,
           materi: document.getElementById("materi").value,
           kelas: document.getElementById("kelas").value,
@@ -323,33 +283,20 @@
         const loader = document.getElementById("loader");
         loader.classList.remove("hidden");
 
-        let jenjangContext = "";
-        if (p.jenjang === "SMK") {
-            jenjangContext = `PENTING: Karena ini jenjang SMK, fokuskan pada Keterampilan Kejuruan, Link and Match dengan Dunia Kerja, dan Langkah Kerja Praktik/Vokasi yang spesifik. Gunakan istilah industri yang relevan.`;
-        } else if (p.jenjang === "SMA") {
-            jenjangContext = `PENTING: Karena ini jenjang SMA, fokuskan pada Pendalaman Konsep Teoretis, Berpikir Analitis Tingkat Tinggi (HOTS), dan persiapan akademik yang kuat.`;
-        } else {
-            jenjangContext = `PENTING: Untuk jenjang SMP, fokuskan pada transisi remaja, pemahaman dasar yang kuat, dan eksplorasi minat bakat.`;
-        }
+        const systemPrompt = `Anda adalah pakar Kurikulum Merdeka ${p.jenjang}. 
+        Gunakan metode Deep Learning 8-3-3-4.
+        PENTING: Gunakan model HTML (tabel dan list) untuk hasil.
+        Sertakan label: [3M], [3P], [4PP] dalam langkah pembelajaran.
+        Jika ini SMK, fokus ke keterampilan praktis/vokasi.
+        Jika ini SMA, fokus ke kedalaman teori dan HOTS.`;
 
-        const systemPrompt = `Anda adalah pakar Kurikulum Merdeka ${p.jenjang} dan ahli metode Deep Learning 8-3-3-4 (Berkesadaran, Bermakna, Menggembirakan).
-        
-        INSTRUKSI UTAMA:
-        1. Buat Modul Ajar (MA) lengkap.
-        2. Terapkan kerangka 8-3-3-4 secara eksplisit dengan label [3M] (Menerima, Mengolah, Merefleksi), [3P] (Personal, Praktikal, Profesional), dan [4PP] (Persiapan, Penyampaian, Praktik, Penampilan).
-        3. ${jenjangContext}
-        4. Jika diberikan Capaian Pembelajaran (CP) berikut, gunakan sebagai acuan utama: "${p.cp}".
-        5. Format output wajib menggunakan HTML (Tabel dan List).
-        6. Sertakan bagian: Tujuan Pembelajaran, Pertanyaan Pemantik, Kegiatan Pembelajaran (Pendahuluan, Inti, Penutup), Asesmen, dan Lampiran LKPD sederhana.
-        7. JANGAN membuat bagian tanda tangan.`;
-
-        const promptText = `Hasilkan Modul Ajar lengkap untuk Materi: ${p.materi}, Mapel: ${p.mapel}, Jenjang: ${p.jenjang}, Fase: ${p.fase}, Kelas: ${p.kelas}, Alokasi: ${p.alokasi}, Model: ${p.model}.`;
+        const promptText = `Buat Modul Ajar: Materi ${p.materi}, Mapel ${p.mapel}, Jenjang ${p.jenjang}, Fase ${p.fase}, Kelas ${p.kelas}, Alokasi ${p.alokasi}, CP: ${p.cp}.`;
 
         try {
-          // Menggunakan model gemini-1.5-flash yang lebih stabil
+          // PERBAIKAN: Menggunakan model gemini-1.5-flash yang pasti ada
           const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
           
-          const response = await fetchWithRetry(apiUrl, {
+          const response = await fetch(apiUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -358,62 +305,27 @@
             }),
           });
 
-          let aiHtml = cleanAiText(response.candidates?.[0]?.content?.parts?.[0]?.text || "Gagal menghasilkan konten.");
-          
-          const today = new Date();
-          const dateStr = `${today.getDate()} ${["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"][today.getMonth()]} ${today.getFullYear()}`;
+          const data = await response.json();
+          if (data.error) throw new Error(data.error.message);
 
-          const header = `
-            <div style="text-align:center; border-bottom: 3px double black; padding-bottom: 10px; margin-bottom: 20px;">
-                <h1 style="font-size:16pt; margin:0; font-weight:bold;">MODUL AJAR KURIKULUM MERDEKA</h1>
-                <h2 style="font-size:14pt; margin:0;">${p.jenjang} - KERANGKA DEEP LEARNING 8-3-3-4</h2>
+          let aiHtml = data.candidates[0].content.parts[0].text
+            .replace(/```html/gi, "").replace(/```/gi, "").trim();
+          
+          const header = `<div style="text-align:center; border-bottom:3px double black; margin-bottom:20px;">
+              <h1 style="font-size:16pt; font-weight:bold;">MODUL AJAR KURIKULUM MERDEKA</h1>
+              <h2 style="font-size:14pt;">${p.jenjang} - KERANGKA 8-3-3-4</h2>
             </div>
             <table>
-                <tr><td class="section-bg" width="25%">Nama Penyusun</td><td width="25%">${p.guru}</td><td class="section-bg" width="25%">Sekolah</td><td width="25%">${p.sekolah}</td></tr>
-                <tr><td class="section-bg">Mata Pelajaran</td><td>${p.mapel}</td><td class="section-bg">Jenjang / Fase</td><td>${p.jenjang} / ${p.fase}</td></tr>
-                <tr><td class="section-bg">Materi Pokok</td><td colspan="3"><strong>${p.materi}</strong></td></tr>
-                <tr><td class="section-bg">Kelas / Sem</td><td>${p.kelas} / ${p.semester}</td><td class="section-bg">Tahun Pelajaran</td><td>${p.tahun}</td></tr>
-                <tr><td class="section-bg">Alokasi Waktu</td><td>${p.alokasi}</td><td class="section-bg">Model Pembelajaran</td><td>${p.model}</td></tr>
-                <tr><td class="section-bg">Profil Pancasila</td><td colspan="3">${p.p3}</td></tr>
+                <tr><td class="section-bg" width="25%">Nama Guru</td><td width="25%">${p.guru}</td><td class="section-bg" width="25%">Sekolah</td><td width="25%">${p.sekolah}</td></tr>
+                <tr><td class="section-bg">Mata Pelajaran</td><td>${p.mapel}</td><td class="section-bg">Jenjang/Fase</td><td>${p.jenjang}/${p.fase}</td></tr>
+                <tr><td class="section-bg">Materi</td><td colspan="3"><strong>${p.materi}</strong></td></tr>
             </table>`;
 
-          const footer = `
-            <div style="margin-top: 40px; page-break-inside: avoid;">
-                <table style="border:none !important; width:100% !important;">
-                    <tr style="border:none !important;">
-                        <td style="border:none !important; text-align:center; width:50%;">
-                            <p>Mengetahui,</p>
-                            <p>Kepala Sekolah</p>
-                            <br><br><br>
-                            <p><strong><u>${p.kepala}</u></strong></p>
-                        </td>
-                        <td style="border:none !important; text-align:center; width:50%;">
-                            <p>${p.sekolah.split(' ').pop()}, ${dateStr}</p>
-                            <p>Guru Mata Pelajaran</p>
-                            <br><br><br>
-                            <p><strong><u>${p.guru}</u></strong></p>
-                        </td>
-                    </tr>
-                </table>
-            </div>`;
-
-          if (aiHtml.toLowerCase().includes("lembar kerja") || aiHtml.toLowerCase().includes("lkpd")) {
-              const parts = aiHtml.split(/(?=lembar kerja|lkpd|lampiran)/i);
-              const mainBody = parts.shift();
-              aiHtml = mainBody + footer + '<div class="page-divider"></div>' + parts.join('');
-          } else {
-              aiHtml += footer;
-          }
-
           document.getElementById("rppOutput").innerHTML = header + aiHtml;
-          
-          if (window.MathJax) await window.MathJax.typesetPromise([document.getElementById("rppOutput")]);
-
           document.getElementById("inputForm").classList.add("hidden");
           document.getElementById("resultArea").classList.remove("hidden");
-          window.scrollTo(0, 0);
         } catch (err) {
-          alert("Gagal memproses AI: " + err.message);
+          alert("Error: " + err.message);
         } finally {
           loader.classList.add("hidden");
         }
@@ -430,8 +342,7 @@
         window.getSelection().removeAllRanges();
         window.getSelection().addRange(range);
         document.execCommand("copy");
-        window.getSelection().removeAllRanges();
-        alert("Konten berhasil disalin!");
+        alert("Berhasil disalin!");
       }
     </script>
   </body>
