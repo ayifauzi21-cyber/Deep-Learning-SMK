@@ -273,16 +273,20 @@
         }
       }
 
-      async function fetchWithRetry(url, options, maxRetries = 3) {
+      async function fetchWithRetry(url, options, maxRetries = 5) {
+        let delay = 1000;
         for (let i = 0; i < maxRetries; i++) {
           try {
             const response = await fetch(url, options);
-            if (response.ok) return await response.json();
-            const errorData = await response.json();
-            if (errorData.error) throw new Error(errorData.error.message);
+            const data = await response.json();
+            if (response.ok) return data;
+            
+            if (data.error) throw new Error(data.error.message);
+            throw new Error(`HTTP Error ${response.status}`);
           } catch (e) {
             if (i === maxRetries - 1) throw e;
-            await new Promise((res) => setTimeout(res, 2000 * (i + 1)));
+            await new Promise((res) => setTimeout(res, delay));
+            delay *= 2; // Exponential backoff
           }
         }
       }
@@ -319,7 +323,6 @@
         const loader = document.getElementById("loader");
         loader.classList.remove("hidden");
 
-        // Logic Customization per Jenjang
         let jenjangContext = "";
         if (p.jenjang === "SMK") {
             jenjangContext = `PENTING: Karena ini jenjang SMK, fokuskan pada Keterampilan Kejuruan, Link and Match dengan Dunia Kerja, dan Langkah Kerja Praktik/Vokasi yang spesifik. Gunakan istilah industri yang relevan.`;
@@ -343,7 +346,8 @@
         const promptText = `Hasilkan Modul Ajar lengkap untuk Materi: ${p.materi}, Mapel: ${p.mapel}, Jenjang: ${p.jenjang}, Fase: ${p.fase}, Kelas: ${p.kelas}, Alokasi: ${p.alokasi}, Model: ${p.model}.`;
 
         try {
-          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${key}`;
+          // Menggunakan model gemini-1.5-flash yang lebih stabil
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
           
           const response = await fetchWithRetry(apiUrl, {
             method: "POST",
@@ -393,7 +397,6 @@
                 </table>
             </div>`;
 
-          // Injecting Page Divider for LKPD
           if (aiHtml.toLowerCase().includes("lembar kerja") || aiHtml.toLowerCase().includes("lkpd")) {
               const parts = aiHtml.split(/(?=lembar kerja|lkpd|lampiran)/i);
               const mainBody = parts.shift();
